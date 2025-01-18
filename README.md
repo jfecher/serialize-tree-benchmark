@@ -8,9 +8,9 @@ is of course nebulous but it is meant to reflect what a reasonable first pass wo
 
 ## Source files
 
-- Ocaml: `tree.ml`
+- Ocaml: `ocaml tree.ml`
   - 197.22s user, 3:22 total
-- Lobster: `tree.lobster`
+- Lobster: `lobster tree.lobster`
   - 138.94s user, 2:19 total
-- Rust: `src/main.rs`
+- Rust: `cargo run --release` (source file in `src/main.rs`)
   - 6.8s user, 7.187s total
