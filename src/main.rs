@@ -27,15 +27,19 @@ fn deserialize(data: &str) -> Tree {
         None
     } else {
         let int_end = find_item_end(data, 1); // skip '('
-        let val = data[1..int_end].parse::<i32>().unwrap();
+
+        // Unlike lobster & Ocaml, rust doesn't need to allocate each substring
+        // into its own string. Adding `.to_string()` calls on each substring in
+        // this function only increases runtime by ~4s though.
+        let val = data[1..int_end]/*.to_string()*/.parse::<i32>().unwrap();
 
         let left_start = int_end + 1;
         let left_end = find_item_end(data, left_start);
-        let left = deserialize(&data[left_start..left_end]);
+        let left = deserialize(&data[left_start..left_end]/*.to_string()*/);
 
         let right_start = left_end + 1;
         let right_end = data.len() - 1;
-        let right = deserialize(&data[right_start..right_end]);
+        let right = deserialize(&data[right_start..right_end]/*.to_string()*/);
         Some(Rc::new(TreeNode {
             val, left, right
         }))
