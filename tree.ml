@@ -70,7 +70,7 @@ let rec make_tree (i: int): tree option =
         let node = make_tree (i - 1) in
         Some({ value = i; left = node; right = node })
 
-(* 197.22s user, 3:22 total *)
+(* 47.99s user, 52.85s total *)
 let () =
     for i = 0 to 25 do
         let tree1 = make_tree i in

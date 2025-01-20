@@ -8,9 +8,9 @@ is of course nebulous but it is meant to reflect what a reasonable first pass wo
 
 ## Source files
 
-- Ocaml: `ocaml tree.ml`
-  - 197.22s user, 3:22 total
-- Lobster: `lobster tree.lobster`
-  - 138.94s user, 2:19 total
 - Rust: `cargo run --release` (source file in `src/main.rs`)
   - 6.8s user, 7.187s total
+- Ocaml: `ocamlopt -o tree_ml tree.ml`
+  - 47.99s user, 52.85s total
+- Lobster: `lobster tree.lobster` (unable to test `--cpp` flag: it appears to be output windows-specific project files only)
+  - 138.94s user, 2:19 total
